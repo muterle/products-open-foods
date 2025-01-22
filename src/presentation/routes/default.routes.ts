@@ -10,9 +10,9 @@ export const DefaultRoutes = (getProcessLog: IGetProcessLogUseCase) => {
     if (processLog) {
       const { lastUpdate, startedAt, lastSync, lastSyncStatus, baseOk, memoryUse } = processLog;
 
-      res.send({ lastUpdate, startedAt, lastSync, lastSyncStatus, baseOk, memoryUse });
+      res.status(200).send({ lastUpdate, startedAt, lastSync, lastSyncStatus, baseOk, memoryUse });
     } else {
-      res.send({ message: "Não há log de processamento" });
+      res.status(404).send({ message: "Não há log de processamento" });
     }
   });
 

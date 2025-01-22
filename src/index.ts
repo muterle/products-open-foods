@@ -25,6 +25,9 @@ import { ProcessLogVerify } from "./presentation/process/process-log-verify";
 import { CreateProcessLog } from "./domain/use-cases/process-log/create-process-log";
 import { UpdateProcessLog } from "./domain/use-cases/process-log/update-process-log";
 
+import swaggerUi from "swagger-ui-express";
+import swaggerOutput from "./swagger_output.json";
+
 dotenv.config();
 const port = process.env.PORT;
 const cronJobFoods = process.env.CRON_JOB_FOODS as string;
@@ -119,7 +122,9 @@ const cronJobProcess = process.env.CRON_JOB_PROCESS as string;
   );
 
   server.use(defaultRoutes);
-  server.use("/products", productsRoutes);
+  server.use(productsRoutes);
+
+  server.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerOutput));
 
   const processOpenFoods = new ProcessOpenFoods(
     new CreateProduct(new ProductRepository(productDataSource)),

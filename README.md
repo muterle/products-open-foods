@@ -25,6 +25,7 @@ Para rodar o projeto, depois de baixar do GitHub, seguir os seguintes passos:
 - Após a instalação, rodar o comando: `npm run dev` para rodar em desenvolvimento
 - Para rodar em produção, rodar o comando: `npm run build` e em seguida `npm run start`
 - Para rodar os testes, rodar o comando: `npm run test`
+- Para visualiza a documentação, usar o url base com /docs
 
 > This is a challenge by [Coodesh](https://coodesh.com/)
 
