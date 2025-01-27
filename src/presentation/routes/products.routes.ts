@@ -27,7 +27,7 @@ export const ProductsRoutes = (
   router.get("/products", async (req: Request, resp: Response) => {
     try {
       const page = req.query.page ? parseInt(req.query.page as string) : 1;
-      const take = req.query.limit ? parseInt(req.query.limit as string) : 20;
+      const take = req.query.take ? parseInt(req.query.take as string) : 20;
 
       const products = await listProductsUseCase.execute(page, take);
 
